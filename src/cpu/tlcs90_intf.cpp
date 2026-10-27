@@ -1,6 +1,10 @@
 #include "burnint.h"
 #include "tlcs90_intf.h"
 
+// recent MinGW headers: io.h already declares read() and write()
+#define read tlcs90_intf_read
+#define write tlcs90_intf_write
+
 static UINT8 (*read)(UINT32) = NULL;
 static void (*write)(UINT32, UINT8) = NULL;
 static UINT8 (*readio)(UINT16) = NULL;
